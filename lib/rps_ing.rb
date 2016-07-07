@@ -1,4 +1,4 @@
-require "pry"
+
 require "rps_ing/version"
 require 'rps_ing/display'
 require 'rps_ing/game'
