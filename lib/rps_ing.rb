@@ -6,49 +6,57 @@ module RpsIng
     def initialize
       @player = Player.new
       @pick_arr = %w[r p s]
+      @computer = Computer.new
     end
 
     def play
       intro
       loop do
         @player.ask_input
-        break if victory?
+        victory?
+        break if quitting?
       end
-      results
     end
 
     def victory?
-      comp_pick = Computer.new.get_input
+      comp_pick = @computer.ask_input
       win?(comp_pick) || lose?(comp_pick) || tie?(comp_pick)
-
-      @player.player_input.find_index(@pick_arr)
-
     end
 
     def index_finder(player)
       @pick_arr.find_index(player.get_input)
     end
 
-    def win?
-      find_index
+    def win?(comp_pick)
+      if comp_pick == @pick_arr[(index_finder(@player) - 1)]
+        win_message
+        return true
+      end
+      false
     end
 
     def lose?
 
+      if comp_pick == @pick_arr[(index_finder(@player) + 1)]
+        lose_message
+        return true
+      end
+      false
     end
 
     def tie?
-
+      tie_message
+      true
     end
+
+    def quitting
+      input = gets.strip.downcase
+      input == 'quit' || input ==  'q'
+    end
+
   end
 
   class Player
-
-    def validate_input
-    end
-
-    def compare_input
-    end
 
     def ask_input
       choice_message
@@ -87,7 +95,16 @@ module RpsIng
       puts "Please make your choice"
     end
 
-    def results
+    def win_message
+      puts "You win!"
+    end
+
+    def lose_message
+      puts "Sorry, you lose."
+    end
+
+    def tie_message
+      puts "It's a draw"
     end
 
   end
