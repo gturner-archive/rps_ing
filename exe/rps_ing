@@ -1,0 +1,7 @@
+#!/usr/bin/env/ruby
+
+require 'rps_ing'
+
+g = RpsIng::Game.new
+
+g.play

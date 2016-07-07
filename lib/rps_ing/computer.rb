@@ -1,6 +1,9 @@
-class Computer < Player
+module RpsIng
 
-  def get_input
-    %w[r p s].sample
+  class Computer < Player
+
+    def get_input
+      %w[r p s].sample
+    end
   end
 end
