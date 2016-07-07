@@ -13,11 +13,13 @@ module RpsIng
     def win_message(comp_pick)
       puts "You win!"
       puts "the computer chose #{comp_pick}"
+      puts
     end
 
     def lose_message(comp_pick)
       puts "Sorry, you lose."
       puts "the computer chose #{comp_pick}"
+      puts
     end
 
     def tie_message(comp_pick)
@@ -26,7 +28,7 @@ module RpsIng
     end
 
     def quitting_msg
-      puts "Want to quit?"
+      puts "Want to quit?(y/n)"
     end
 
   end

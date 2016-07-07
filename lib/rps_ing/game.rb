@@ -52,7 +52,7 @@ module RpsIng
     def quitting?
       quitting_msg
       input = gets.strip.downcase
-      input == 'quit' || input ==  'q'
+      input == 'yes' || input ==  'y'
     end
   end
 end
