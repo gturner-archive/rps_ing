@@ -28,27 +28,27 @@ class Game
 
   def win?(comp_pick)
     if comp_pick == @pick_arr[(index_finder(@player) - 1)]
-      win_message
+      win_message(comp_pick)
       return true
     end
     false
   end
 
-  def lose?
-
-    if comp_pick == @pick_arr[(index_finder(@player) + 1)]
-      lose_message
+  def lose?(comp_pick)
+    if comp_pick == @pick_arr[(index_finder(@player) + 1) % 3]
+      lose_message(comp_pick)
       return true
     end
     false
   end
 
-  def tie?
-    tie_message
+  def tie?(comp_pick)
+    tie_message(comp_pick)
     true
   end
 
   def quitting?
+    quitting_msg
     input = gets.strip.downcase
     input == 'quit' || input ==  'q'
   end

@@ -6,8 +6,11 @@ class Human < Player
   end
 
   def get_input
+    loop do
       choice_message
-      @player_input = gets.strip.downcase until valid_input?(@player_input)
+      @player_input = gets.strip.downcase
+      break if valid_input?(@player_input)
+    end
   end
 
 end

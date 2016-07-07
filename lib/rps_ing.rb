@@ -1,9 +1,10 @@
+require "pry"
 require "rps_ing/version"
-load 'rps_ing/display.rb'
-load 'rps_ing/game.rb'
-load 'rps_ing/player.rb'
-load 'rps_ing/human.rb'
-load 'rps_ing/computer.rb'
+require 'rps_ing/display'
+require 'rps_ing/game'
+require 'rps_ing/player'
+require 'rps_ing/human'
+require 'rps_ing/computer'
 
 module RpsIng
 
